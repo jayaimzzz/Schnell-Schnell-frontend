@@ -34,9 +34,9 @@ export class LoginFormComponent implements OnInit {
 
     // TODO move api base url to env var
     // TODO change this to an observable
-    this.http.post('http://localhost:8080/login', JSON.stringify(payload)).subscribe(
+    this.http.post('https://localhost:8080/login', JSON.stringify(payload)).subscribe(
       (response) => {
-        window.location.href = "http://onecause.com/"
+        window.location.href = "https://onecause.com/"
       }, 
       (error) => this.errorMessage = error.error
     )

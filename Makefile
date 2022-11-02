@@ -1,3 +1,3 @@
 start_frontend:
-	ng serve
+	npm start
 	

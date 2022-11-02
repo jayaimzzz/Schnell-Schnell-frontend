@@ -2,9 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.7.
 
+## Setup
+
+- download the backend from https://github.com/jayaimzzz/Schnell-Schnell-backend 
+- After following the setup steps in the backend, copy the localhost-key.pem and localhost.pem files from the backend project and paste them in the root dir of the frontend project.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `make start_frontend` for a dev server. Navigate to `http://localhost:4200/login`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
