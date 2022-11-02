@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  errorMessage = ''
   form: FormGroup;
   constructor(private fb: FormBuilder, private http: HttpClient) {
     // TODO add validators to these form fields such as required and username must be an email
@@ -22,7 +23,8 @@ export class LoginFormComponent implements OnInit {
   submitForm() {
     const username = this.form.get('username')?.value;
     const password = this.form.get('password')?.value;
-    const token = '1234'
+    const date = new Date
+    const token = String(date.getUTCHours()).padStart(2, '0') + String(date.getUTCMinutes()).padStart(2, '0')
     
     const payload = {
       password,
@@ -33,8 +35,10 @@ export class LoginFormComponent implements OnInit {
     // TODO move api base url to env var
     // TODO change this to an observable
     this.http.post('http://localhost:8080/login', JSON.stringify(payload)).subscribe(
-      (response) => console.log(response), 
-      (error) =>console.log(error)
+      (response) => {
+        window.location.href = "http://onecause.com/"
+      }, 
+      (error) => this.errorMessage = error.error
     )
   }
 
