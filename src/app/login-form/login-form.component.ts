@@ -20,11 +20,19 @@ export class LoginFormComponent implements OnInit {
   ngOnInit() {}
 
   submitForm() {
-    const formData: any = new FormData();
-    formData.append('username', this.form.get('username')?.value);
-    formData.append('password', this.form.get('password')?.value);
+    const username = this.form.get('username')?.value;
+    const password = this.form.get('password')?.value;
+    const token = '1234'
+    
+    const payload = {
+      password,
+      username,
+      token
+    }
+
     // TODO move api base url to env var
-    this.http.post('http://localhost:8080/login', formData).subscribe(
+    // TODO change this to an observable
+    this.http.post('http://localhost:8080/login', JSON.stringify(payload)).subscribe(
       (response) => console.log(response), 
       (error) =>console.log(error)
     )
